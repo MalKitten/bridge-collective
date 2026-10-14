@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Grid landing page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top-panel">
+    <div class="top-panel-wrapper">
+      <div class="logo">
+        <img src="assets/images/favicon-32x32.png" alt="Bridge Collective logo">
+        <p>Bridge Collective</p>
+      </div>
+      <button class="open-nav-menu active" aria-label="Open menu">
+        <img src="assets/images/icon-menu.svg" alt="Navigation menu">
+      </button>
+      <button class="close-nav-menu" aria-label="Close menu">
+        <img src="assets/images/icon-close.svg" alt="Close menu">
+      </button>
+    </div>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Our Work</a></li>
+        <li><a href="#">Partners</a></li>
+        <li><a href="#">Annual Report</a></li>
+        <li><a href="#">Donate</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <header class="hero">
+      <h1>A classroom for every child.</h1>
+      <p>We fund the schools, train the teachers, and measure what works — so every child we reach today becomes a graduate tomorrow.</p>
+    </header>
+    <dl class="stats">
+      <div class="stat">
+        <dt><img src="assets/images/icon-sparkle.svg" alt=""><span class="stat-highlight" id="students-reached"></span></dt>
+        <dd class="stat-description">
+          <a href="#">Students reached</a>
+        </dd>
+        <dd class="stat-details">Across 31 countries since 2011.</dd>
+      </div>
+      <div class="stat">
+        <dt><img src="assets/images/icon-plus.svg" alt=""><span class="stat-highlight" id="schools-partnered"></span></dt>
+        <dd class="stat-description">
+          <a href="#">Schools partnered</a>
+        </dd>
+        <dd class="stat-details">In 14 countries, from Kenya to Guatemala.</dd>
+      </div>
+      <div class="stat">
+        <dt><img src="assets/images/icon-arrow-right.svg" alt=""><span class="stat-highlight" id="teachers-trained"></span></dt>
+        <dd class="stat-description">
+          <a href="#">Teachers trained</a>
+        </dd>
+        <dd class="stat-details">Equipped with modern tools and methodology.</dd>
+      </div>
+      <div class="stat">
+        <dt><img src="assets/images/icon-trending-up.svg" alt=""><span class="stat-highlight" id="graduation-lift"></span></dt>
+        <dd class="stat-description">
+          <a href="#">Graduation lift</a>
+        </dd>
+        <dd class="stat-details">Partner schools outperform national averages 3x.</dd>
+      </div>
+    </dl>
+  </main>
+  <footer>
+    <p>&copy; 2026 Bridge Collective</p>
+    <p>Registered charity 12345678</p>
+    <p class="attribution">
+      <span>Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.</span>
+      <span>Coded by <a href="https://github.com/MalKitten">MalKitten</a>.</span>
+    </p>
+  </footer>
+  <div class="overlay" inert></div>
+  <script src="script.js"></script>
+</body>
+</html>
