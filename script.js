@@ -68,7 +68,7 @@ async function displayData() {
     if (result > 9) extra *= 10;
     if (result > 99) extra *= 5;
     if (result > 999) extra *= 5;
-    for (const i = 0; i <= result; i += extra) {
+    for (let i = 0; i <= result; i += extra) {
       if (i % 1 !== 0) i = Number(Number(i).toFixed(1)); 
       if (i + extra > result) {
         sprites.push(result); 
