@@ -8,16 +8,16 @@ function docAPI(el, one = true) {
 }
 
 function showEle (ele, otherELe) {
-  for (let e of ele) {
+  for (const e of ele) {
     e.inert = false;
   }
-  for (let e of otherELe) {
+  for (const e of otherELe) {
     e.inert = true;
   }
 }
 
 function classToggle (elements) {
-  for (let e of elements) {
+  for (const e of elements) {
     e.classList.toggle('active');
   }
 }
@@ -56,8 +56,8 @@ async function getAndJsonifyData(url) {
 async function displayData() {
   const data = await getAndJsonifyData('data.json');
   const statELe = [];
-  for (let [key, val] of Object.entries(data)) {
-    let id = '#' + key.toLowerCase().replace(' ', '-');
+  for (const [key, val] of Object.entries(data)) {
+    const id = '#' + key.toLowerCase().replace(' ', '-');
     const stat = docAPI(id);
     statELe.push(stat);
     
@@ -68,7 +68,7 @@ async function displayData() {
     if (result > 9) extra *= 10;
     if (result > 99) extra *= 5;
     if (result > 999) extra *= 5;
-    for (let i = 0; i <= result; i += extra) {
+    for (const i = 0; i <= result; i += extra) {
       if (i % 1 !== 0) i = Number(Number(i).toFixed(1)); 
       if (i + extra > result) {
         sprites.push(result); 
@@ -102,6 +102,5 @@ function parseVal(val) {
     num = num.slice(0, lastIndex);
     sym = lastChar;
   }
-  let result = num;
-  return {result: Number(result), sym};
+  return {result: Number(num), sym};
 }
