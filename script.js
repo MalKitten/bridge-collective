@@ -56,37 +56,42 @@ async function getAndJsonifyData(url) {
 async function displayData() {
   const data = await getAndJsonifyData('data.json');
   const statELe = [];
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   for (const [key, val] of Object.entries(data)) {
     const id = '#' + key.toLowerCase().replace(' ', '-');
     const stat = docAPI(id);
-    statELe.push(stat);
-    
-    const sprites = [];
-    const {result, sym} = parseVal(val);
-    
-    let extra = .1;
-    if (result > 9) extra *= 10;
-    if (result > 99) extra *= 5;
-    if (result > 999) extra *= 5;
-    for (let i = 0; i <= result; i += extra) {
-      if (i % 1 !== 0) i = Number(Number(i).toFixed(1)); 
-      if (i + extra > result) {
-        sprites.push(result); 
-        break;
-      } else sprites.push(i);
-    }
-    const len = sprites.length;
 
-    function animate (spr, time) {
-      if (spr.length === 0) return;
-      requestAnimationFrame(() => stat.innerText = new Intl.NumberFormat("en-IN").format(
-          spr.shift()
-        ) + sym);
-      setTimeout(() => {
-        return animate(spr, time);
-      }, time);
+    if (prefersReducedMotion) stat.innerText = val;
+    else {
+      statELe.push(stat);
+      
+      const sprites = [];
+      const {result, sym} = parseVal(val);
+      
+      let extra = .1;
+      if (result > 9) extra *= 10;
+      if (result > 99) extra *= 5;
+      if (result > 999) extra *= 5;
+      for (let i = 0; i <= result; i += extra) {
+        if (i % 1 !== 0) i = Number(Number(i).toFixed(1)); 
+        if (i + extra > result) {
+          sprites.push(result); 
+          break;
+        } else sprites.push(i);
+      }
+      const len = sprites.length;
+  
+      function animate (spr, time) {
+        if (spr.length === 0) return;
+        requestAnimationFrame(() => stat.innerText = new Intl.NumberFormat("en-IN").format(
+            spr.shift()
+          ) + sym);
+        setTimeout(() => {
+          return animate(spr, time);
+        }, time);
+      }
+      animate(sprites, Math.round(2000 / len));
     }
-    animate(sprites, Math.round(2000 / len));
   }
 }
 
