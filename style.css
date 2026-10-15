@@ -255,7 +255,7 @@ footer>p:last-child>span {
 
 @media (prefers-reduced-motion: reduce) {
   * {
-    transition: all 0s ease !important;
+    transition: none !important;
   }
 }
 
