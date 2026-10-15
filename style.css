@@ -100,21 +100,14 @@ body {
   block-size: 320px;
 }
 
-.open-nav-menu {
-  display: none;
-  cursor: pointer;
-}
-
+.open-nav-menu,
 .close-nav-menu {
-  cursor: pointer;
   display: none;
+  cursor: pointer;
 }
 
+.open-nav-menu.active,
 .close-nav-menu.active {
-  display: inline;
-}
-
-.open-nav-menu.active {
   display: inline;
 }
 
@@ -257,6 +250,14 @@ footer>p:last-child>span {
 }
 
 /* Media Queries */
+
+/* prefers-reduced-motion: reduce */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: all 0s ease !important;
+  }
+}
 
 /* Second layout */
 
